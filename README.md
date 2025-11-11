@@ -99,3 +99,5 @@ Be aware of the Fixer.io API limitations based on your plan:
 - **Paid Plans**: Higher request limits and historical data access
 
 One script call consumes one API request.
+
+For Free Plan, the base currency is always EUR. The script converts rates to USD base internally. For that, the currency list must include USD to perform the conversion correctly.
