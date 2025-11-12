@@ -96,6 +96,13 @@ For example, to get monthly rates for 2024:
 for m in `seq -w 1 12`; do python src/fxratecollector/collect-rates.py --date 2024-$m-01; done
 ```
 
+This will produce 12 files like `exchange_rates_2024-01-01.csv`. You can combine them in
+one big file just like this:
+
+```bash
+awk 'FNR==1 && NR!=1{next;}{print}' exchange_rates_2024-??-01.csv >| ~/tmp/exchange_rates_2024.csv
+```
+
 Fixer.io has a rate limit of 5 calls in a second. The script detects this and
 automatically waits if the limit is reached.
 
